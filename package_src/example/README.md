@@ -1,6 +1,6 @@
-# flui_example
+# fluui_example
 
-Demonstrates how to use the flui plugin.
+Demonstrates how to use the fluui plugin.
 
 ## Getting Started
 
