@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:fluui/fluui.dart';
 
@@ -41,67 +43,73 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             FluuiButton(
-              title: '按钮',
+              title: 'Danger',
               themeType: ThemeType.danger,
               margin: EdgeInsets.only(top: 10),
             ),
             FluuiButton(
-              title: '按钮',
+              title: 'Complete',
               themeType: ThemeType.complete,
               margin: EdgeInsets.only(top: 10),
             ),
             FluuiButton(
-              title: '按钮',
+              title: 'Info',
               themeType: ThemeType.info,
               margin: EdgeInsets.only(top: 10),
             ),
             FluuiButton(
-              title: '按钮',
+              title: 'Warning',
               themeType: ThemeType.warn,
               margin: EdgeInsets.only(top: 10),
             ),
             FluuiButton(
-              title: '按钮',
+              title: 'Success',
               themeType: ThemeType.success,
               margin: EdgeInsets.only(top: 10),
             ),
             FluuiButton(
-              title: '按钮',
+              title: 'Ghost',
               isGhost: true,
               margin: EdgeInsets.only(top: 10),
             ),
             FluuiButton(
               size: FluuiButtonSize.small,
-              title: '按钮',
+              title: 'Small',
               margin: EdgeInsets.only(top: 10),
             ),
             FluuiButton(
-              title: '按钮',
+              title: 'Common',
               size: FluuiButtonSize.common,
               margin: EdgeInsets.only(top: 10),
             ),
             FluuiButton(
               size: FluuiButtonSize.large,
-              title: '按钮',
+              title: 'Large',
               margin: EdgeInsets.only(top: 10),
             ),
             FluuiButton(
               size: FluuiButtonSize.small,
               title: '按钮',
               fluid: true,
-              margin: EdgeInsets.only(top: 10),
+              margin: EdgeInsets.only(top: 10, left: 10, right: 10),
             ),
             FluuiButton(
               title: '按钮',
               size: FluuiButtonSize.common,
-              margin: EdgeInsets.only(top: 10),
+              margin: EdgeInsets.only(top: 10, left: 10, right: 10),
               fluid: true,
             ),
             FluuiButton(
               size: FluuiButtonSize.large,
               title: '按钮',
-              margin: EdgeInsets.only(top: 10),
+              margin: EdgeInsets.only(top: 10, left: 10, right: 10),
               fluid: true,
+            ),
+            FluuiButton(
+              title: '按钮',
+              size: FluuiButtonSize.common,
+              margin: EdgeInsets.only(top: 10),
+              loose: true,
             ),
           ],
         ),

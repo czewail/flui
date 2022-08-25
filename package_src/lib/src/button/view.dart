@@ -28,6 +28,8 @@ class FluuiButton extends StatelessWidget {
 
   final bool fluid;
 
+  final bool loose;
+
   final EdgeInsets? margin;
 
   final EdgeInsets? padding;
@@ -48,6 +50,7 @@ class FluuiButton extends StatelessWidget {
       this.onPressed,
       this.isGhost = false,
       this.fluid = false,
+      this.loose = false,
       this.radiusSize,
       this.themeType = ThemeType.primary,
       this.gradient,
@@ -92,6 +95,7 @@ class FluuiButton extends StatelessWidget {
 
   double? _getButtonWidth() {
     if (fluid) return double.infinity;
+    if (loose) return 300;
     if (width != null) return width!;
     return null;
   }
@@ -124,6 +128,12 @@ class FluuiButton extends StatelessWidget {
     }
   }
 
+  EdgeInsets? _getButtonMargin() {
+    if (margin != null) return margin;
+    if (fluid) return const EdgeInsets.fromLTRB(10, 0, 10, 0);
+    return null;
+  }
+
   double? _getButtonFontSize() {
     switch (size) {
       case FluuiButtonSize.common:
@@ -144,7 +154,7 @@ class FluuiButton extends StatelessWidget {
       child: ClipRRect(
         borderRadius: _getBorderRadius(),
         child: Container(
-          margin: margin,
+          margin: _getButtonMargin(),
           height: _getButtonHeight(),
           width: _getButtonWidth(),
           padding: _getButtonPadding(),
