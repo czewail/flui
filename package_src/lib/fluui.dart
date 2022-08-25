@@ -5,10 +5,6 @@
 // platforms in the `pubspec.yaml` at
 // https://flutter.dev/docs/development/packages-and-plugins/developing-packages#plugin-platforms.
 
-import 'fluui_platform_interface.dart';
+library fluui;
 
-class Fluui {
-  Future<String?> getPlatformVersion() {
-    return FluuiPlatform.instance.getPlatformVersion();
-  }
-}
+export 'src/button//view.dart';
