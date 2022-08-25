@@ -1,7 +1,8 @@
 enum ThemeType {
   primary,
   success,
+  complete,
   info,
   warn,
-  error,
+  danger,
 }

@@ -8,3 +8,5 @@
 library fluui;
 
 export 'src/button//view.dart';
+export 'src/theme.dart';
+export 'src/global.dart';

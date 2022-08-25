@@ -57,4 +57,35 @@ class FluuiStyle {
   static double fontSizeH4 = fontSizeBase * 1.25;
   static double fontSizeH5 = fontSizeBase;
   static double fontSizeH6 = fontSizeBase * 0.85;
+
+  /// 圆角
+  static BorderRadius borderRadiusBase = BorderRadius.circular(4);
+  static BorderRadius borderRadiusLarge = BorderRadius.circular(6);
+  static BorderRadius borderRadiusSmall = BorderRadius.circular(3);
+
+  // Padding
+  static double paddingBaseVertical = 6;
+  static double paddingBaseHorizontal = 10;
+  static double paddingLgVertical = 10;
+  static double paddingLgHorizontal = 16;
+  static double paddingSmVertical = 4;
+  static double paddingSmHorizontal = 7;
+  static double paddingXsVertical = 2;
+  static double paddingXsHorizontal = 4;
+
+  // Size
+  static double sizeBase = paddingBaseVertical * 2 + fontSizeBase * 2 + 2;
+  static double sizeLg = paddingLgVertical * 2 + fontSizeLg * 2 + 2;
+  static double sizeSm = paddingSmVertical * 2 + fontSizeSm * 2 + 2;
+  static double sizeXs = paddingXsVertical * 2 + fontSizeXs * 2 + 2;
+
+  // Padding
+  static EdgeInsets paddingBase = EdgeInsets.fromLTRB(paddingBaseHorizontal,
+      paddingBaseVertical, paddingBaseHorizontal, paddingBaseVertical);
+  static EdgeInsets paddingLg = EdgeInsets.fromLTRB(paddingLgHorizontal,
+      paddingLgVertical, paddingLgHorizontal, paddingLgVertical);
+  static EdgeInsets paddingSm = EdgeInsets.fromLTRB(paddingSmHorizontal,
+      paddingSmVertical, paddingSmHorizontal, paddingSmVertical);
+  static EdgeInsets paddingXs = EdgeInsets.fromLTRB(paddingXsHorizontal,
+      paddingXsVertical, paddingXsHorizontal, paddingXsVertical);
 }

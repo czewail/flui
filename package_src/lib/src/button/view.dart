@@ -2,6 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:fluui/src/style.dart';
 import 'package:fluui/src/global.dart';
 
+/// 按钮类型
+enum FluuiButtonShap {
+  round, // 圆角
+  circle, // 圆形
+}
+
+/// 按钮尺寸
+enum FluuiButtonSize {
+  small, // 小号
+  common, // 标准
+  large, // 大号
+}
+
 class FluuiButton extends StatelessWidget {
   final double? width;
 
@@ -15,13 +28,15 @@ class FluuiButton extends StatelessWidget {
 
   final bool fluid;
 
-  final EdgeInsets margin;
+  final EdgeInsets? margin;
 
-  final EdgeInsets padding;
+  final EdgeInsets? padding;
 
-  final double radiusSize;
+  final double? radiusSize;
 
   final ThemeType themeType;
+
+  final FluuiButtonSize size;
 
   final LinearGradient? gradient;
 
@@ -33,19 +48,92 @@ class FluuiButton extends StatelessWidget {
       this.onPressed,
       this.isGhost = false,
       this.fluid = false,
-      this.radiusSize = 2,
+      this.radiusSize,
       this.themeType = ThemeType.primary,
       this.gradient,
-      this.margin = const EdgeInsets.fromLTRB(10, 0, 10, 0),
-      this.padding = const EdgeInsets.fromLTRB(2, 5, 2, 5)})
+      this.size = FluuiButtonSize.common,
+      this.margin,
+      this.padding})
       : super(key: key);
 
   Color _getColorByThemeType(ThemeType themetype) {
     switch (themetype) {
       case ThemeType.primary:
         return FluuiStyle.primaryColor;
+      case ThemeType.success:
+        return FluuiStyle.successColor;
+      case ThemeType.complete:
+        return FluuiStyle.completeColor;
+      case ThemeType.danger:
+        return FluuiStyle.dangerColor;
+      case ThemeType.info:
+        return FluuiStyle.infoColor;
+      case ThemeType.warn:
+        return FluuiStyle.warningColor;
       default:
         return FluuiStyle.primaryColor;
+    }
+  }
+
+  /// 获取圆角尺寸
+  /// 根据不同的 size
+  BorderRadius _getBorderRadius() {
+    switch (size) {
+      case FluuiButtonSize.common:
+        return FluuiStyle.borderRadiusBase;
+      case FluuiButtonSize.small:
+        return FluuiStyle.borderRadiusSmall;
+      case FluuiButtonSize.large:
+        return FluuiStyle.borderRadiusLarge;
+      default:
+        return FluuiStyle.borderRadiusBase;
+    }
+  }
+
+  double? _getButtonWidth() {
+    if (fluid) return double.infinity;
+    if (width != null) return width!;
+    return null;
+  }
+
+  double? _getButtonHeight() {
+    if (height != null) return height!;
+    switch (size) {
+      case FluuiButtonSize.common:
+        return FluuiStyle.sizeBase;
+      case FluuiButtonSize.small:
+        return FluuiStyle.sizeSm;
+      case FluuiButtonSize.large:
+        return FluuiStyle.sizeLg;
+      default:
+        return FluuiStyle.sizeBase;
+    }
+  }
+
+  EdgeInsets? _getButtonPadding() {
+    if (padding != null) return padding;
+    switch (size) {
+      case FluuiButtonSize.common:
+        return FluuiStyle.paddingBase;
+      case FluuiButtonSize.small:
+        return FluuiStyle.paddingSm;
+      case FluuiButtonSize.large:
+        return FluuiStyle.paddingLg;
+      default:
+        return FluuiStyle.paddingBase;
+    }
+  }
+
+  double? _getButtonFontSize() {
+    switch (size) {
+      case FluuiButtonSize.common:
+        return FluuiStyle.fontSizeBase;
+      case FluuiButtonSize.small:
+        return FluuiStyle.fontSizeSm;
+      case FluuiButtonSize.large:
+        return FluuiStyle.fontSizeLg;
+      default:
+        return FluuiStyle.fontSizeBase;
     }
   }
 
@@ -54,37 +142,34 @@ class FluuiButton extends StatelessWidget {
     return Container(
       alignment: Alignment.center,
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(radiusSize),
+        borderRadius: _getBorderRadius(),
         child: Container(
           margin: margin,
-          padding: padding,
-          height: height,
-          width: fluid ? double.infinity : null,
+          height: _getButtonHeight(),
+          width: _getButtonWidth(),
+          padding: _getButtonPadding(),
           decoration: BoxDecoration(
-              gradient: isGhost ? null : gradient,
-              color: _getColorByThemeType(themeType),
-              // : LinearGradient(colors: [
-              //     // const Color(0xFF4776E6),
-              //     FluuiStyle.primaryColor,
-              //     FluuiStyle.primaryDarkColor
-              //     // Color(0xFF8E54E9),
-              //   ]),
-              borderRadius: BorderRadius.circular(radiusSize),
+              gradient: isGhost || gradient == null ? null : gradient,
+              color: gradient == null && !isGhost
+                  ? _getColorByThemeType(themeType)
+                  : null,
+              borderRadius: _getBorderRadius(),
               border:
                   isGhost ? Border.all(color: FluuiStyle.primaryColor) : null),
           child: TextButton(
             style: TextButton.styleFrom(
               tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(radiusSize)),
+              shape: RoundedRectangleBorder(borderRadius: _getBorderRadius()),
+              padding: EdgeInsets.zero,
             ),
             onPressed: onPressed,
             // highlightColor: Colors.yellow,
             child: Text(
               title,
               style: TextStyle(
-                  fontSize: 14,
-                  color: isGhost ? const Color(0xFF8E54E9) : Colors.white),
+                  fontSize: _getButtonFontSize(),
+                  color:
+                      isGhost ? _getColorByThemeType(themeType) : Colors.white),
             ),
           ),
         ),
