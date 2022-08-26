@@ -65,13 +65,13 @@ class FluuiStyle {
 
   // Padding
   static double paddingBaseVertical = 6;
-  static double paddingBaseHorizontal = 10;
+  static double paddingBaseHorizontal = 12;
   static double paddingLgVertical = 10;
-  static double paddingLgHorizontal = 16;
+  static double paddingLgHorizontal = 18;
   static double paddingSmVertical = 4;
-  static double paddingSmHorizontal = 7;
+  static double paddingSmHorizontal = 8;
   static double paddingXsVertical = 2;
-  static double paddingXsHorizontal = 4;
+  static double paddingXsHorizontal = 5;
 
   // Size
   static double sizeBase = paddingBaseVertical * 2 + fontSizeBase * 2 + 2;

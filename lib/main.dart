@@ -38,10 +38,11 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
+      body: SingleChildScrollView(
+          child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: const [
             FluuiButton(
               title: 'Danger',
               themeType: ThemeType.danger,
@@ -111,9 +112,20 @@ class _MyHomePageState extends State<MyHomePage> {
               margin: EdgeInsets.only(top: 10),
               loose: true,
             ),
+            FluuiButton(
+              title: '按钮',
+              margin: EdgeInsets.only(top: 10, left: 10, right: 10),
+              icon: Icons.add,
+              fluid: true,
+            ),
+            FluuiButton(
+              title: '按钮',
+              margin: EdgeInsets.only(top: 10),
+              icon: Icons.home,
+            ),
           ],
         ),
-      ),
+      )),
     );
   }
 }
