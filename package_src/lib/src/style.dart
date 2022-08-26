@@ -1,16 +1,32 @@
 import 'package:flutter/material.dart';
 
 class FluuiStyle {
+  /// 颜色亮度调节参数
+  static const double _mixPercentageDark = 0.8;
+  static const double _mixPercentageDarker = 0.6;
+  static const double _mixPercentageLight = 0.8;
+  static const double _mixPercentageLighter = 0.2;
+
   // 基础色
   static Color masterColor = const Color(0xFF626262);
+  static Color whiteColor = Colors.white;
+  static Color blackColor = Colors.black;
 
   /// Colors
   /// Success Color
+  static Color successColor = const Color(0xFF10CFBD);
   static Color successLighterColor = const Color(0xFFCFF5F2);
   static Color successLightColor = const Color(0xFF40D9CA);
-  static Color successColor = const Color(0xFF10CFBD);
   static Color successDarkColor = const Color(0xFF0DA697);
   static Color successDarkerColor = const Color(0xFF0A7C71);
+  static Color successLighterColor =
+      Color.lerp(successColor, whiteColor, _mixPercentageLighter)!;
+  // static Color successLightColor =
+  //     Color.lerp(successColor, whiteColor, _mixPercentageLight)!;
+  // static Color successDarkColor =
+  //     Color.lerp(successColor, blackColor, _mixPercentageDark)!;
+  // static Color successDarkerColor =
+  //     Color.lerp(successColor, blackColor, _mixPercentageDarker)!;
 
   /// Complate Color
   static Color completeLighterColor = const Color(0xFFDAEFFD);
