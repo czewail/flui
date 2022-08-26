@@ -1,7 +1,5 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:fluui/fluui.dart';
+import 'buttons.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,115 +15,41 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const HomePage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: const Text('Fluui'),
       ),
       body: SingleChildScrollView(
-          child: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            FluuiButton(
-              title: 'Danger',
-              themeType: ThemeType.danger,
-              margin: EdgeInsets.only(top: 10),
-            ),
-            FluuiButton(
-              title: 'Complete',
-              themeType: ThemeType.complete,
-              margin: EdgeInsets.only(top: 10),
-            ),
-            FluuiButton(
-              title: 'Info',
-              themeType: ThemeType.info,
-              margin: EdgeInsets.only(top: 10),
-            ),
-            FluuiButton(
-              title: 'Warning',
-              themeType: ThemeType.warn,
-              margin: EdgeInsets.only(top: 10),
-            ),
-            FluuiButton(
-              title: 'Success',
-              themeType: ThemeType.success,
-              margin: EdgeInsets.only(top: 10),
-            ),
-            FluuiButton(
-              title: 'Ghost',
-              isGhost: true,
-              margin: EdgeInsets.only(top: 10),
-            ),
-            FluuiButton(
-              size: FluuiButtonSize.small,
-              title: 'Small',
-              margin: EdgeInsets.only(top: 10),
-            ),
-            FluuiButton(
-              title: 'Common',
-              size: FluuiButtonSize.common,
-              margin: EdgeInsets.only(top: 10),
-            ),
-            FluuiButton(
-              size: FluuiButtonSize.large,
-              title: 'Large',
-              margin: EdgeInsets.only(top: 10),
-            ),
-            FluuiButton(
-              size: FluuiButtonSize.small,
-              title: '按钮',
-              fluid: true,
-              margin: EdgeInsets.only(top: 10, left: 10, right: 10),
-            ),
-            FluuiButton(
-              title: '按钮',
-              size: FluuiButtonSize.common,
-              margin: EdgeInsets.only(top: 10, left: 10, right: 10),
-              fluid: true,
-            ),
-            FluuiButton(
-              size: FluuiButtonSize.large,
-              title: '按钮',
-              margin: EdgeInsets.only(top: 10, left: 10, right: 10),
-              fluid: true,
-            ),
-            FluuiButton(
-              title: '按钮',
-              size: FluuiButtonSize.common,
-              margin: EdgeInsets.only(top: 10),
-              loose: true,
-            ),
-            FluuiButton(
-              title: '按钮',
-              margin: EdgeInsets.only(top: 10, left: 10, right: 10),
-              icon: Icons.add,
-              fluid: true,
-            ),
-            FluuiButton(
-              title: '按钮',
-              margin: EdgeInsets.only(top: 10),
-              icon: Icons.home,
-            ),
+          children: [
+            TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) {
+                      return const ButtonsPage();
+                    }),
+                  );
+                },
+                child: const Text('按钮'))
           ],
         ),
-      )),
+      ),
     );
   }
 }
