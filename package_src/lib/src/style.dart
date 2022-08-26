@@ -19,8 +19,8 @@ class FluuiStyle {
   static Color successLightColor = const Color(0xFF40D9CA);
   static Color successDarkColor = const Color(0xFF0DA697);
   static Color successDarkerColor = const Color(0xFF0A7C71);
-  static Color successLighterColor =
-      Color.lerp(successColor, whiteColor, _mixPercentageLighter)!;
+  // static Color successLighterColor =
+  //     Color.lerp(successColor, whiteColor, _mixPercentageLighter)!;
   // static Color successLightColor =
   //     Color.lerp(successColor, whiteColor, _mixPercentageLight)!;
   // static Color successDarkColor =

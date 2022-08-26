@@ -216,7 +216,6 @@ class FluuiButton extends StatelessWidget {
           margin: _getButtonMargin(),
           height: _getButtonHeight(),
           width: _getButtonWidth(),
-          // padding: _getButtonPadding(),
           decoration: BoxDecoration(
               gradient: isGhost || gradient == null ? null : gradient,
               color:
@@ -235,15 +234,7 @@ class FluuiButton extends StatelessWidget {
                         MaterialStateProperty.all(_getHighlineColor()),
                     splashFactory: NoSplash.splashFactory,
                   ),
-
-              // style: TextButton.styleFrom(
-              //   tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-              //   primary: Colors.transparent,
-              //   shape: RoundedRectangleBorder(borderRadius: _getBorderRadius()),
-              //   padding: EdgeInsets.zero,
-              // ),
               onPressed: onPressed ?? () {},
-              // highlightColor: Colors.yellow,
               child: icon != null
                   ? Text.rich(TextSpan(
                       style: TextStyle(
