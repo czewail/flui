@@ -25,6 +25,14 @@ class FluuiItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    if (child != null) return child!;
+
+    return Column(
+      children: [
+        Container(
+          height: height,
+        )
+      ],
+    );
   }
 }
